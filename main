@@ -1,0 +1,23 @@
+TCP/IP swiss army knife
+
+Es una herramienta que te permite leer y escribir datos através de la red.
+Crea una conesión TCP al puerto especificado, en el target host. Así lo que introduzvas por teclado, tu stadar out put, se manda al host y cualquier cosa que quieras enviar o cpiar stravés de esa conexion.
+Netcat o nc tiene un uso muy simple:
+
+nc [host] [port]
+
+Ejemplos de uso desde un equipo remoto a tu equipo:
+
+nc -lvnp 31000 127.0.0.1 > file
+
+Desde tu equipo local
+
+nc -v -w 2 127.0.0.1 31000 < file
+
+Netcat puede tambien funcionar como un servidor, escuchando las conexiones entrantes en un porto arbitrario, permitiendote tambien leer y escribir. Netcat se puede usar indiferentemente en una mauina clente o servidor.
+Un inconveniente, es que si haces control + c, sales de la consola que te proporciona netcat.
+Para solucionar esto, simplemente se debe usar lrwrap
+
+lrwrap nc -nlv 4646
+
+Asi ya puedes hacer control+l y moverte con un poco mas de soltura. ;)
